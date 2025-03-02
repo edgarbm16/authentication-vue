@@ -18,7 +18,7 @@
           <h3>
             Login with Facebook
           </h3>
-          <button>
+          <button @click="loginFacebook">
             Sign in with Facebook
           </button>
         </div>
@@ -44,14 +44,25 @@
   
 <script lang="ts" setup>
 
-    import {GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
+    import {FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
 
     const googleProvider = new GoogleAuthProvider()
+    const facebookProvider = new FacebookAuthProvider()
 
     const auth = getAuth()
 
     const loginGoogle = () => {
       signInWithPopup(auth, googleProvider)
+       .then((result) => {
+          alert('Logged in successfully!')
+        })
+       .catch((error) => {
+          alert('Error logging in:')
+        })
+    }
+
+    const loginFacebook = () => {
+      signInWithPopup(auth, facebookProvider)
        .then((result) => {
           alert('Logged in successfully!')
         })
