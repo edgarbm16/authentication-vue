@@ -32,10 +32,10 @@
         </div>
         <div class="col">
           <h3>
-            Login with Twitter
+            Login with X
           </h3>
-          <button>
-            Sign in with Twitter
+          <button @click="loginX">
+            Sign in with X
           </button>
         </div>
       </div>
@@ -44,10 +44,11 @@
   
 <script lang="ts" setup>
 
-    import {FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
+    import {TwitterAuthProvider, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
 
     const googleProvider = new GoogleAuthProvider()
     const facebookProvider = new FacebookAuthProvider()
+    const xProvider = new TwitterAuthProvider()
 
     const auth = getAuth()
 
@@ -63,6 +64,16 @@
 
     const loginFacebook = () => {
       signInWithPopup(auth, facebookProvider)
+       .then((result) => {
+          alert('Logged in successfully!')
+        })
+       .catch((error) => {
+          alert('Error logging in:')
+        })
+    }
+
+    const loginX = () => {
+      signInWithPopup(auth, xProvider)
        .then((result) => {
           alert('Logged in successfully!')
         })
