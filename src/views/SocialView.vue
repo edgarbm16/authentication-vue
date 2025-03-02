@@ -26,7 +26,7 @@
           <h3>
             Login with GitHub
           </h3>
-          <button>
+          <button @click="loginGithub">
             Sign in with GitHub
           </button>
         </div>
@@ -44,11 +44,12 @@
   
 <script lang="ts" setup>
 
-    import {TwitterAuthProvider, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
+    import {GithubAuthProvider, TwitterAuthProvider, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
 
     const googleProvider = new GoogleAuthProvider()
     const facebookProvider = new FacebookAuthProvider()
     const xProvider = new TwitterAuthProvider()
+    const githubProvider = new GithubAuthProvider()
 
     const auth = getAuth()
 
@@ -74,6 +75,16 @@
 
     const loginX = () => {
       signInWithPopup(auth, xProvider)
+       .then((result) => {
+          alert('Logged in successfully!')
+        })
+       .catch((error) => {
+          alert('Error logging in:')
+        })
+    }
+
+    const loginGithub = () => {
+      signInWithPopup(auth, githubProvider)
        .then((result) => {
           alert('Logged in successfully!')
         })
