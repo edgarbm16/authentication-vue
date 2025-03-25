@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "@aws-amplify/ui-vue": "^4.2.29",
+    "@azure/core-http": "^3.0.5",
+    "@azure/msal-browser": "^4.5.0",
+    "@azure/storage-blob": "^12.26.0",
     "@popperjs/core": "^2.11.8",
     "aws-amplify": "^6.13.2",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
     "firebase": "^11.4.0",
+    "tiny-emitter": "^2.1.0",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.3"
